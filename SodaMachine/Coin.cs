@@ -6,23 +6,26 @@ using System.Threading.Tasks;
 
 namespace SodaMachine
 {
-    class Coin
+    public class Coin
     {
         //Member Variables (Has A)
         protected double value;
         public string Name;
-
+        
         public double Value
         {
             get
             {
                 return value;
             }
-
-
         }
         //Constructor (Spawner)
+        public Coin(string name, double value)
+        {
+            
 
+        }
         //Member Methods (Can Do)
+        
     }
 }

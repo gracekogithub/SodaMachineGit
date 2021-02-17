@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SodaMachine
 {
-    class Simulation
+    public class Simulation
     {
         //Member Variables (Has A)
         Customer _customer;

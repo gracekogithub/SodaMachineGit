@@ -29,7 +29,24 @@ namespace SodaMachine
         public SodaMachine()
         {
             _register = new List<Coin>();
+            Coin quarter = new Coin ("quarter", 0.25);
+            Coin dime = new Coin("dime", 0.10);
+            Coin nickel = new Coin("nickel", 0.05);
+            Coin penny = new Coin("penny", 0.01);
+            _register.Add(quarter);
+            _register.Add(dime);
+            _register.Add(nickel);
+            _register.Add(penny);
+            
+        
             _inventory = new List<Can>();
+            Can orangeSoda = new Can ("orange soda", 0.60);
+            Can cola = new Can("cola", 0.50);
+            Can rootBeer = new Can("root beer", 0.30);
+            _inventory.Add(orangeSoda);
+            _inventory.Add(cola);
+            _inventory.Add(rootBeer);
+
             FillInventory();
             FillRegister();
         }
@@ -39,11 +56,13 @@ namespace SodaMachine
         //A method to fill the sodamachines register with coin objects.
         public void FillRegister()
         {
-            Console.WriteLine(_register);
+            
+            
         }
         //A method to fill the sodamachines inventory with soda can objects.
         public void FillInventory()
         {
+            
             Console.WriteLine(_inventory);
             
 
@@ -69,13 +88,15 @@ namespace SodaMachine
             string customerCanSelection="";
             Can canChoice = GetSodaFromInventory(customerCanSelection);
             customer.GatherCoinsFromWallet(canChoice);
+            
         }
         //Gets a soda from the inventory based on the name of the soda.
         private Can GetSodaFromInventory(string nameOfSoda)
         {
-            string[] cans = { "orange cans", "roob beer", "cola" };
-            Console.WriteLine($"customer select {cans[i]}.");
+
+            Console.WriteLine($"customer select {nameOfSoda}.");
             
+                        
         }
 
         //This is the main method for calculating the result of the transaction.
@@ -95,10 +116,7 @@ namespace SodaMachine
         //If the change cannot be made, return null.
         private List<Coin> GatherChange(double changeValue)
         {
-            if (changeValue==)
-            {
-
-            }
+            
         }
         //Reusable method to check if the register has a coin of that name.
         //If it does have one, return true.  Else, false.
@@ -132,6 +150,8 @@ namespace SodaMachine
         //Puts a list of coins into the soda machines register.
         private void DepositCoinsIntoRegister(List<Coin> coins)
         {
+            coins = new List<Coin>();
+            ;
            foreach (var coin in coins)
             {
                 Console.WriteLine(coin.Name);

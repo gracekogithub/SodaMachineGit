@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SodaMachine
 {
-    abstract class Can
+    public class Can
     {
         //Member Variables (Has A)
         protected double price;
@@ -20,7 +20,10 @@ namespace SodaMachine
             }
         }
         //Constructor (Spawner)
-
+        public Can(string name, double price)
+        {
+          
+        }
         //Member Methods (Can Do)
     }
 }
