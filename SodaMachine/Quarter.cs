@@ -11,7 +11,7 @@ namespace SodaMachine
         //Member Variables (Has A)
 
         //Constructor (Spawner)
-        public Quarter()
+        public Quarter(string Name, double value) : base(Name, value)
         {
             Name = "Quarter";
             value = 0.25;

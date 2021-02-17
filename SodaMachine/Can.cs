@@ -19,10 +19,12 @@ namespace SodaMachine
                 return price;
             }
         }
+        
         //Constructor (Spawner)
         public Can(string name, double price)
         {
-          
+            Name = name;
+            this.price = price;
         }
         //Member Methods (Can Do)
     }

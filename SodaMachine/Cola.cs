@@ -11,7 +11,7 @@ namespace SodaMachine
         //Member Variables (Has A)
 
         //Constructor (Spawner)
-        public Cola()
+        public Cola(string name, double value) :base(name, value)
         {
             Name = "Cola";
             price = 0.50;
