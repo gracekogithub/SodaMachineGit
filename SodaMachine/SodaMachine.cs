@@ -14,38 +14,23 @@ namespace SodaMachine
         private int coinCount;
         int i = 0;
 
-        // Properties go here: between member variables and methods
-
-        //public int CoinCount
-        //{
-        //    get
-        //    {
-        //        return coinCount;
-        //    }
-           
-        //}
+        public int CoinCount
+        {
+            get
+            {
+                return coinCount;
+            }
+            set
+            {
+                coinCount = value;
+            }
+        }
 
         //Constructor (Spawner)
         public SodaMachine()
         {
-            _register = new List<Coin>();
-            Coin quarter = new Coin("quarter", 0.25);
-            Coin dime = new Coin("dime", 0.10);
-            Coin nickel = new Coin("nickel", 0.05);
-            Coin penny = new Coin("penny", 0.01);
-            _register.Add(quarter);
-            _register.Add(dime);
-            _register.Add(nickel);
-            _register.Add(penny);
-            
-        
+            _register = new List<Coin>();        
             _inventory = new List<Can>();
-            Can orangeSoda = new Can ("orange soda", 0.60);
-            Can cola = new Can("cola", 0.50);
-            Can rootBeer = new Can("root beer", 0.30);
-            _inventory.Add(orangeSoda);
-            _inventory.Add(cola);
-            _inventory.Add(rootBeer);
 
             FillInventory();
             FillRegister();
@@ -56,20 +41,48 @@ namespace SodaMachine
         //A method to fill the sodamachines register with coin objects.
         public void FillRegister()
         {
-            double initalQuarter = 20;
-            double initalDimes = 10;
-            double initalNickels = 20;
-            double initalPennies = 50;
+            double initalQuarterAmount = 20;
+            double initalDimesAmount = 10;
+            double initalNickelsAmount = 20;
+            double initalPenniesAmount = 50;
+            for (int i = 0; i <= initalQuarterAmount; i++)
+            {
+                Coin quarter = new Coin("quarter", 0.25);
+               _register.Add(quarter);
 
-            
+            }
+            for (int i = 0; i <= initalDimesAmount; i++)
+            {
+                Coin dime = new Coin("dime", 0.10);
+                _register.Add(dime);
+            }
+            for (int i = 0; i <= initalNickelsAmount; i++)
+            {
+                Coin nickel = new Coin("nickel", 0.05);
+                _register.Add(nickel);
+            }
+            for (int i = 0; i <= initalPenniesAmount; i++)
+            {
+                Coin penny = new Coin("penny", 0.01);
+                _register.Add(penny);
 
+            }
             Console.WriteLine($"Soda Machine has total amount of {_register}.");
             
         }
         //A method to fill the sodamachines inventory with soda can objects.
         public void FillInventory()
         {
-            
+            double eachCanSlotSpace = 40;
+            for (int i = 0; i < eachCanSlotSpace; i++)
+            {
+                Can orangeSoda = new Can("orange soda", 0.60);
+                Can cola = new Can("cola", 0.50);
+                Can rootBeer = new Can("root beer", 0.30);
+                _inventory.Add(orangeSoda);
+                _inventory.Add(cola);
+                _inventory.Add(rootBeer);
+            }
             Console.WriteLine($"Soda Machine has total cans of {_inventory}.");
             
 
@@ -92,17 +105,16 @@ namespace SodaMachine
         private void Transaction(Customer customer)
         {
             //need to get a soda from inventory, that method needs a string, it will return a can.
-            string customerCanSelection="";
+            string customerCanSelection = UserInterface.SodaSelection(_inventory);
             Can canChoice = GetSodaFromInventory(customerCanSelection);
-            customer.GatherCoinsFromWallet(canChoice);
-            
+            List<Coin>chosenCoin = customer.GatherCoinsFromWallet(canChoice);
+            //CalculateTransaction(chosenCoin, canChoice, customer);
         }
         //Gets a soda from the inventory based on the name of the soda.
         private Can GetSodaFromInventory(string nameOfSoda)
         {
-            string input = Console.ReadLine();
-            Console.WriteLine($"customer select {nameOfSoda}.");
-            return _inventory[i];
+            Console.WriteLine("You select: "+ nameOfSoda);
+            return null;
         }
 
         //This is the main method for calculating the result of the transaction.
@@ -114,7 +126,39 @@ namespace SodaMachine
         //If the payment does not meet the cost of the soda: despense payment back to the customer.
         private void CalculateTransaction(List<Coin> payment, Can chosenSoda, Customer customer)
         {
-          
+            double payment = double.Parse(Console.ReadLine());
+            bool coinLeftInRegister = true;
+            double changeAmount;
+            double priceOfSoda;
+            foreach (var coin in payment)
+            {
+                Console.WriteLine("The price of soda is: "+ priceOfSoda+"Insert coins:");
+                string userInput = Console.ReadLine();
+            }
+            
+            if (payment > priceOfSoda)
+            {
+                if (coinLeftInRegister==true)
+                {
+                   
+                    Console.WriteLine("Enjoy your" + chosenSoda);
+                    Console.WriteLine("Dispense $"+ changeAmount);
+                }
+                if(coinLeftInRegister == false)
+                {
+                    Console.WriteLine("Dispense payment back to the customer");
+                }
+
+            }
+      
+            if (payment == priceOfSoda)
+            {
+                Console.WriteLine("Dispense soda");
+            }
+            else 
+            {
+                Console.WriteLine("Dispense payment back to the customer");
+            }
             
         }
         //Takes in the value of the amount of change needed.
@@ -124,9 +168,9 @@ namespace SodaMachine
         private List<Coin> GatherChange(double changeValue)
         {
             bool needChange = true;
-            if (needChange == true)
+            if (needChange)
             {
-                CalculateTransaction();
+              
                 DetermineChange();
             }
             else
@@ -139,6 +183,7 @@ namespace SodaMachine
         //If it does have one, return true.  Else, false.
         private bool RegisterHasCoin(string name)
         {
+            FillRegister();
       
         }
         //Reusable method to return a coin from the register.
@@ -150,13 +195,14 @@ namespace SodaMachine
         //Takes in the total payment amount and the price of can to return the change amount.
         private double DetermineChange()
         {
-            double change = totalPayment - canPrice;
+            //double change = totalPayment - canPrice;
             
         }
         //Takes in a list of coins to return the total value of the coins as a double.
         private double TotalCoinValue(List<Coin> payment)
         {
-            payment = new List<Coin>();
+            
+            double payment = Convert.ToInt32(Console.ReadLine());
             double totalCoin = coinCount * _register.Count;
             return totalCoin;
             

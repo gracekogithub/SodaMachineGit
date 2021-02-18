@@ -23,7 +23,8 @@ namespace SodaMachine
         //This method will be the main logic for a customer to retrieve coins form their wallet.
         //Takes in the selected can for price reference
         //Will need to get user input for coins they would like to add.
-        //When all is said and done this method will return a list of coin objects that the customer will use a payment for their soda.
+        //When all is said and done this method will return a list of coin 
+        //objects that the customer will use a payment for their soda.
         public List<Coin> GatherCoinsFromWallet(Can selectedCan)
         {
             
@@ -38,6 +39,12 @@ namespace SodaMachine
         public void AddCoinsIntoWallet(List<Coin> coinsToAdd)
         {
             coinsToAdd = new List<Coin>();
+            
+            foreach (var item in coinsToAdd)
+            {
+                
+            }
+            
 
         }
         //Takes in a can object to add to the customers backpack.

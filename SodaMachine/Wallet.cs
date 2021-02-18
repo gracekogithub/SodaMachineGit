@@ -9,18 +9,18 @@ namespace SodaMachine
     class Wallet
     {
         //Member Variables (Has A)
-        public List<Coin> Coins;
+        public List<Coin> coins;
         //Constructor (Spawner)
         public Wallet()
         {
-            Coins = new List<Coin>();
+            List<Coin> coins = new List<Coin>();
+          
             FillRegister();
         }
         //Member Methods (Can Do)
         //Fills wallet with starting money
         private void FillRegister()
         {
-          
         }
     }
 }
