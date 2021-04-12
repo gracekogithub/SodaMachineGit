@@ -82,11 +82,19 @@ namespace SodaMachine
         }
         //Method to be called to start a transaction.
         //Takes in a customer which can be passed freely to which ever method needs it.
-        public void BeginTransaction(Customer customer, List<Coin> payment)
+        public void BeginTransaction(Customer customer)
         {
-            DepositCoinsIntoRegister(payment);
-            TotalCoinValue(payment);
+            bool willProceed = UserInterface.DisplayWelcomeInstructions(_inventory);
+            if (willProceed)
+            {
+                Transaction(customer);
+            }
         }
+        //public void BeginTransaction(Customer customer, List<Coin> payment)
+        //{
+        //    DepositCoinsIntoRegister(payment);
+        //    TotalCoinValue(payment);
+        //}
         
         //This is the main transaction logic think of it like "runGame".  This is where the user will be prompted for the desired soda.
         //grab the desired soda from the inventory.
@@ -107,8 +115,17 @@ namespace SodaMachine
         //Gets a soda from the inventory based on the name of the soda.
         private Can GetSodaFromInventory(string sodaSelection)
         {
-            
-            return sodaSelection;
+
+            for (int i = 0; i < _inventory.Count; i++)
+            {
+                if (_inventory[i].Name == sodaSelection)
+                {
+                    return _inventory[i];
+                }
+
+
+            }
+            return null;
         }
 
         //This is the main method for calculating the result of the transaction.
