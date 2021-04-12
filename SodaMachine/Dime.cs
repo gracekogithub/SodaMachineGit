@@ -11,7 +11,7 @@ namespace SodaMachine
         //Member Variables (Has A)
 
         //Constructor (Spawner)
-        public Dime(string Name, double value) : base (Name, value)
+        public Dime()
         {
             Name = "Dime";
             value = 0.10;

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SodaMachine
 {
-    public class Cola : Can
+    class Cola:Can
     {
         //Member Variables (Has A)
 
         //Constructor (Spawner)
-        public Cola(string Name, double price) : base(Name, price)
+        public Cola()
         {
             Name = "Cola";
             price = 0.50;

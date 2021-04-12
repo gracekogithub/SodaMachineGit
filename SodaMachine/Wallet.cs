@@ -13,14 +13,18 @@ namespace SodaMachine
         //Constructor (Spawner)
         public Wallet()
         {
-            List<Coin> coins = new List<Coin>();
+            coins = new List<Coin>();
           
-            FillRegister();
+            FillRegister( );
         }
         //Member Methods (Can Do)
         //Fills wallet with starting money
         private void FillRegister()
         {
+            
+            
+            
         }
+      
     }
 }

@@ -10,19 +10,15 @@ namespace SodaMachine
     {
         //Member Variables (Has A)
         public List<Can> cans;
-        public string inTheBackpack;
+       
         //Constructor (Spawner)
         public Backpack()
         {
             cans = new List<Can>();
-            inTheBackpack = "empty";
+            //inTheBackpack = "empty";
         }
 
         //Member Methods (Can Do)
-        public void PutCanInTheBackpack() 
-        {
-            Console.WriteLine("I have");
-        }
-
+       
     }
 }

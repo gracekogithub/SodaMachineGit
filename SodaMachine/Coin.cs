@@ -22,13 +22,10 @@ namespace SodaMachine
             
         }
         //Constructor (Spawner)
-        public Coin(string Name, double value)
-        {
-            this.Name = Name;
-            this.value = value;
+        
             
             
-        }
+        
         //Member Methods (Can Do)
         
     }

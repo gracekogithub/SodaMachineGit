@@ -58,6 +58,12 @@ namespace SodaMachine
             return validatedSelection.Item2;
 
         }
+
+        internal static string CoinSelection(object selectedCan, List<Coin> payment)
+        {
+            throw new NotImplementedException();
+        }
+
         //For validating the selected coin choice. Returns a tuple with a bool for if its a valid input and the normalized name of the coin
         private static Tuple<bool, string> ValidateCoinChoice(int input)
         {
